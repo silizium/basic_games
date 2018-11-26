@@ -46,6 +46,7 @@ repeat
 			sim.mass-sim.emass))
 
 		sim.thrust=tonumber(io.read("*l")) or sim.thrust
+		sim.thrust=math.min(math.max(0, sim.thrust), 200)
 		sim.simtime=10 	-- seconds until next input
 	end
 
@@ -91,7 +92,8 @@ repeat
 	::outcome::
 	do
 		local mph=3600*sim.vel
-		write("ON MOON AT ",sim.secs," SECONDS - IMPACT VELOCITY ",mph," MPH\n")
+		write("ON MOON AT ",fmt("%.1f", sim.secs)," SECONDS - IMPACT VELOCITY ",
+			fmt("%.1f", mph)," MPH\n")
 		if mph<=1.2 then 
 			print("PERFECT LANDING!")
 			goto try_again 
@@ -104,7 +106,8 @@ repeat
 			goto try_again
 		end
 		write("SORRY THERE WERE NO SURVIVORS. YOU BLEW IT!\n",
-			"IN FACT, YOU BLASTED A NEW LUNAR CRATER ",mph*.227," FEET DEEP!\n")
+			"IN FACT, YOU BLASTED A NEW LUNAR CRATER ",
+				fmt("%.0f", mph*.227)," FEET DEEP!\n")
 		goto try_again
 	end
 		-- End State: Outcome
