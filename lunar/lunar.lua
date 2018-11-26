@@ -37,14 +37,15 @@ repeat
 
 	print("\nSEC  MI + FT","MPH","LB FUEL","BURN RATE\n") 
 	sim={alt=120, vel=1, mass=33000, emass=16500, step=1e-3, grav=1.8, 
-		secs=0,trust=0,simtime=10,dt=0} 
+		secs=0,thrust=0,simtime=10,dt=0} 
 
 	::io_state::
 	do
 		write(fmt("%3d   %3d %-4d %9.2e %6.0f  >? ",
 			sim.secs, int(sim.alt), int(5280*(sim.alt-int(sim.alt))), 3600*sim.vel, 
 			sim.mass-sim.emass))
-		sim.thrust=io.read("*n")
+
+		sim.thrust=tonumber(io.read("*l")) or sim.thrust
 		sim.simtime=10 	-- seconds until next input
 	end
 
