@@ -8,12 +8,14 @@ end
 function string:plot(x)
 	return self:sub(1,x-1).."*"..self:sub(x+1)
 end
-function tab(x)
-	return (" "):rep(x)
-end
+function tab(x)	return (" "):rep(x) end
+function center(len, str) return tab(.5*(len-#str))..str end
 
-write(tab(32),"3D PLOT\n")
-write(tab(15),"CREATIVE COMPUTING  MORRISTOWN, NEW JERSEY\n\n\n\n")
+
+
+write(center(55, "3D PLOT\n"),
+	center(55, "CHAOTIC COMPUTING HAMBURG, GERMANY\n"),
+	center(55,"CONVERTED FROM BASIC TO LUA 2018 (CC-ZERO)\n\n\n"))
 
 for x=-30,30,1.5 do
 	local l=0
