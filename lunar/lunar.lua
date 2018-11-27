@@ -19,11 +19,12 @@ function simstep(s, nalt, nvel)
 	s.vel=nvel
 	return
 end
+function tab(x)	return (" "):rep(x) end
+function center(len, str) return tab(.5*(len-#str))..str end
 
-
-write((" "):rep(33), "LUNAR\n", (" "):rep(15),
-	"CHAOTIC COMPUTING HAMBURG, GERMANY\n",
-	"CONVERTED FROM BASIC 1969 TO LUA 2018 (CC-ZERO)\n\n",
+write(center(55,"LUNAR\n"), 
+	center(55,"CHAOTIC COMPUTING HAMBURG, GERMANY\n"),
+	center(55,"CONVERTED FROM BASIC 1969 TO LUA 2018 (CC-ZERO)\n\n"),
 	"THIS IS A COMPUTER SIMULATION OF AN APOLLO LUNAR\n",
 	"LANDING CAPSULE.\n\n",
 	"THE ON-BOARD COMPUTER HAS FAILED (IT WAS MADE BY\n",
