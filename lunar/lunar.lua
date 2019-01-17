@@ -43,7 +43,7 @@ repeat
 
 	::io_state::
 	do
-		write(fmt("%3d   %3d %-4d %6.1f %6.0f  >? \a",
+		write(fmt("%3d   %3d %4d %6.1f %6.0f  >? \a",
 			sim.secs, int(sim.alt), int(5280*(sim.alt-int(sim.alt))), 3600*sim.vel, 
 			sim.mass-sim.emass))
 
